@@ -1,0 +1,11 @@
+generated\Proveedor.class
+org\educa\app\Activity1.class
+generated\ObjectFactory.class
+generated\Productos.class
+generated\Producto.class
+org\educa\app\Activity2.class
+org\educa\service\ProductoService.class
+org\educa\entity\SummaryEntity.class
+org\educa\entity\ProductoEntity.class
+generated\Costes.class
+org\educa\app\Activity3.class
