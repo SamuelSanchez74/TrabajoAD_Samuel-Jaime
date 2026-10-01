@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cfe4701-88fd-4a4d-ab32-bcc1b1e75645" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/educa/DAO/ProductoDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/educa/DAO/ProductoDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/educa/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/educa/service/ProductoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/JAXB/episode_xjc.xjb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/educa/app/Activity1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/educa/app/Activity1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/educa/app/Activity2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/educa/app/Activity2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/educa/app/Activity3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/educa/app/Activity3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/educa/service/ProductoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/educa/service/ProductoService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +63,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "PrimerService",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
