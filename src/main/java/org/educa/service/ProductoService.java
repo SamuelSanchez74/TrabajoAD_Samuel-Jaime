@@ -14,7 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoService {
-
+    /**
+     *
+     * @param fileXml Ruta del XML
+     * @return  Devuelve una lista de ProductoEntity
+     * @throws JAXBException Excepcion
+     */
     public List<ProductoEntity> readFile(String fileXml) throws JAXBException {
         //TODO: Implementar
 
