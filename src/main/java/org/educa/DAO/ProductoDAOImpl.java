@@ -6,6 +6,8 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ProductoDAOImpl implements ProductoDAO {
 
@@ -20,5 +22,18 @@ public class ProductoDAOImpl implements ProductoDAO {
         JAXBContext context = JAXBContext.newInstance(Productos.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         return (Productos) unmarshaller.unmarshal(new File(fileXml));
+    }
+
+    /**
+     *
+     * @param path ruta
+     * @param content texto a imprimir
+     * @throws IOException excepcion al escribir en fichero
+     */
+    @Override
+    public void writeSummary(String path, String content) throws IOException {
+        try (FileWriter writer = new FileWriter(path)) {
+            writer.write(content);
+        }
     }
 }
