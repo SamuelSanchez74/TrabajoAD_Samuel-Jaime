@@ -17,9 +17,8 @@ public class ProductoDAOImpl implements ProductoDAO {
      */
     @Override
     public Productos obtainProducts(String fileXml) throws JAXBException {
-        File file = new File(fileXml);
         JAXBContext context = JAXBContext.newInstance(Productos.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
-        return (Productos) unmarshaller.unmarshal(file);
+        return (Productos) unmarshaller.unmarshal(new File(fileXml));
     }
 }
