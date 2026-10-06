@@ -32,6 +32,12 @@ public class ProductoDAOImpl implements ProductoDAO {
      */
     @Override
     public void writeSummary(String path, String content) throws IOException {
+        File file = new File(path);
+        File parent = file.getParentFile();
+        if (parent != null) {
+            parent.mkdirs();
+        }
+
         try (FileWriter writer = new FileWriter(path)) {
             writer.write(content);
         }
