@@ -82,7 +82,7 @@ public class ProductoService {
 
         File xml = new File(fileXml);
         String fileName = removeExtension(xml.getName());
-        String date = fileName.substring(fileName.lastIndexOf('_'))+ 1;
+        String date = fileName.substring(fileName.lastIndexOf('_'));
 
         BigDecimal totalProfit = productos.stream().map(ProductoEntity::getProfit).reduce(BigDecimal.ZERO, BigDecimal::add);
 
