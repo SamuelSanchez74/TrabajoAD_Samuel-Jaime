@@ -4,8 +4,7 @@ import generated.Productos;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.educa.entity.ProductoEntity;
 
 import java.io.File;
@@ -65,5 +64,27 @@ public class ProductoDAOImpl implements ProductoDAO {
         }
     }
 
+    private RowStyles createRowStyles(Workbook workbook, Font bold, IndexedColors background) {
+        return new RowStyles(
+                createStyle(workbook, background, bold, HorizontalAlignment.CENTER, null),
+                createStyle(workbook, background, null, HorizontalAlignment.LEFT, null),
+                createStyle(workbook, background, null, HorizontalAlignment.RIGHT, MONEY_FORMAT),
+                createStyle(workbook, background, null, HorizontalAlignment.RIGHT, PERCENT_FORMAT));
+    }
+
+    private CellStyle createStyle(Workbook workbook, IndexedColors background, Font font,
+                                  HorizontalAlignment alignment, String dataFormat) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(background.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(alignment);
+        if (font != null) {
+            style.setFont(font);
+        }
+        if (dataFormat != null) {
+            style.setDataFormat(workbook.createDataFormat().getFormat(dataFormat));
+        }
+        return style;
+    }
 
 }
