@@ -4,12 +4,22 @@ import generated.Productos;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
+import org.apache.poi.ss.usermodel.CellStyle;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class ProductoDAOImpl implements ProductoDAO {
+
+    private static final String MONEY_FORMAT = "#,##0.00 \"€\"";
+    private static final String PERCENT_FORMAT = "0.00%";
+    private static final String[] EXCEL_HEADERS = {
+            "Codigo", "Número de Serie", "Precio", "Descuento",
+            "Precio Final", "Costes Envío", "Costes Almacenaje", "Beneficio"};
+
+    private record RowStyles(CellStyle code, CellStyle text, CellStyle money, CellStyle percent) {
+    }
 
     /**
      *
