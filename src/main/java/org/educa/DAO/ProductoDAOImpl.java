@@ -10,12 +10,22 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.educa.entity.ProductoEntity;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductoDAOImpl implements ProductoDAO {
+
+    private static final String MONEY_FORMAT = "#,##0.00 \"€\"";
+    private static final String PERCENT_FORMAT = "0.00%";
+    private static final String[] EXCEL_HEADERS = {
+            "Codigo", "Número de Serie", "Precio", "Descuento",
+            "Precio Final", "Costes Envío", "Costes Almacenaje", "Beneficio"};
+
+    private record RowStyles(CellStyle code, CellStyle text, CellStyle money, CellStyle percent) {
+    }
 
     /**
      *
@@ -49,6 +59,38 @@ public class ProductoDAOImpl implements ProductoDAO {
         }
     }
 
+    @Override
+    public void writeExcel(String path, List<ProductoEntity> productos) throws IOException {
+        try (Workbook workbook = buildWorkbook(productos);
+             FileOutputStream out = new FileOutputStream(path)) {
+            workbook.write(out);
+        }
+    }
+
+    private RowStyles createRowStyles(Workbook workbook, Font bold, IndexedColors background) {
+        return new RowStyles(
+                createStyle(workbook, background, bold, HorizontalAlignment.CENTER, null),
+                createStyle(workbook, background, null, HorizontalAlignment.LEFT, null),
+                createStyle(workbook, background, null, HorizontalAlignment.RIGHT, MONEY_FORMAT),
+                createStyle(workbook, background, null, HorizontalAlignment.RIGHT, PERCENT_FORMAT));
+    }
+
+    private CellStyle createStyle(Workbook workbook, IndexedColors background, Font font,
+                                  HorizontalAlignment alignment, String dataFormat) {
+        CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(background.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        style.setAlignment(alignment);
+        if (font != null) {
+            style.setFont(font);
+        }
+        if (dataFormat != null) {
+            style.setDataFormat(workbook.createDataFormat().getFormat(dataFormat));
+        }
+        return style;
+    }
+
+}
     private void createTextCell(Row row, int column, String value, CellStyle style) {
         Cell cell = row.createCell(column);
         cell.setCellValue(value);
