@@ -97,5 +97,13 @@ public class ProductoService {
 
     public void exportExcel(String path, String fileXml) throws JAXBException, IOException, ParseException {
         //TODO: Implementar
+
+        List<ProductoEntity> productos = readFile(fileXml);
+
+        String fileName = new File(fileXml).getName();
+        String date = fileName.substring(fileName.lastIndexOf('_') + 1, fileName.lastIndexOf('.'));
+
+        new File(path).mkdirs();
+        productoDAO.writeExcel(new File(path, EXCEL_PREFIX + date + EXCEL_EXTENSION).getPath(), productos);
     }
 }
