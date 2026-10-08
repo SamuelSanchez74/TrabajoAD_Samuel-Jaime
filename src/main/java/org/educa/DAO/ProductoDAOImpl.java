@@ -59,6 +59,12 @@ public class ProductoDAOImpl implements ProductoDAO {
         }
     }
 
+    /**
+     *
+     * @param path ruta archivo a escribir
+     * @param productos lista de productos
+     * @throws IOException al escribir
+     */
     @Override
     public void writeExcel(String path, List<ProductoEntity> productos) throws IOException {
         try (Workbook workbook = buildWorkbook(productos);
