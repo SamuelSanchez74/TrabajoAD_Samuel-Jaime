@@ -95,6 +95,14 @@ public class ProductoService {
 
     }
 
+    /**
+     *
+     * @param path ruta carpeta export
+     * @param fileXml ruta fichero XML productos
+     * @throws JAXBException al procesar el XMl
+     * @throws IOException al escribir
+     * @throws ParseException al parsear
+     */
     public void exportExcel(String path, String fileXml) throws JAXBException, IOException, ParseException {
         //TODO: Implementar
 
