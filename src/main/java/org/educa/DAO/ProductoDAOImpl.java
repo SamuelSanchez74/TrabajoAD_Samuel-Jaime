@@ -12,6 +12,7 @@ import org.educa.entity.ProductoEntity;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductoDAOImpl implements ProductoDAO {
@@ -51,6 +52,12 @@ public class ProductoDAOImpl implements ProductoDAO {
     private void createTextCell(Row row, int column, String value, CellStyle style) {
         Cell cell = row.createCell(column);
         cell.setCellValue(value);
+        cell.setCellStyle(style);
+    }
+
+    private void createNumberCell(Row row, int column, BigDecimal value, CellStyle style) {
+        Cell cell = row.createCell(column);
+        cell.setCellValue(value.doubleValue());
         cell.setCellStyle(style);
     }
 
