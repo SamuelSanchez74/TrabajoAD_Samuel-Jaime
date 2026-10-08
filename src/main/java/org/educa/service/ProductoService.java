@@ -24,6 +24,8 @@ public class ProductoService {
 
     private static final String SUMMARY_PREFIX = "result";
     private static final String SUMMARY_EXTENSION = ".txt";
+    private static final String EXCEL_PREFIX = "export_";
+    private static final String EXCEL_EXTENSION = ".xlsx";
 
     /**
      *
