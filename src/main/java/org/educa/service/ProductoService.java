@@ -32,7 +32,7 @@ public class ProductoService {
     /**
      *
      * @param fileXml Ruta del XML
-     * @return  Devuelve una lista de ProductoEntity
+     * @return Devuelve una lista de ProductoEntity
      * @throws JAXBException Excepcion
      */
     public List<ProductoEntity> readFile(String fileXml) throws JAXBException {
@@ -77,10 +77,10 @@ public class ProductoService {
 
     /**
      *
-     * @param path path where the file is created
+     * @param path    path where the file is created
      * @param fileXml path of the xml file
      * @throws JAXBException excepcion while procesing the xml
-     * @throws IOException excepcion while creating the file
+     * @throws IOException   excepcion while creating the file
      */
     public void exportSummary(String path, String fileXml) throws JAXBException, IOException {
         //Reutilizo readFile para tener los productos con el beneficio calculado
@@ -90,7 +90,7 @@ public class ProductoService {
         File xml = new File(fileXml);
         String fileName = removeExtension(xml.getName());
         //El +1 es para saltarme el guion bajo y quedarme solo con la fecha
-        String date = fileName.substring(fileName.lastIndexOf('_')+ 1);
+        String date = fileName.substring(fileName.lastIndexOf('_') + 1);
 
         //Sumo el beneficio de todos los productos empezando desde 0
         BigDecimal totalProfit = productos.stream().map(ProductoEntity::getProfit).reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -107,10 +107,10 @@ public class ProductoService {
 
     /**
      *
-     * @param path ruta carpeta export
+     * @param path    ruta carpeta export
      * @param fileXml ruta fichero XML productos
-     * @throws JAXBException al procesar el XMl
-     * @throws IOException al escribir
+     * @throws JAXBException  al procesar el XMl
+     * @throws IOException    al escribir
      * @throws ParseException al parsear
      */
     public void exportExcel(String path, String fileXml) throws JAXBException, IOException, ParseException {

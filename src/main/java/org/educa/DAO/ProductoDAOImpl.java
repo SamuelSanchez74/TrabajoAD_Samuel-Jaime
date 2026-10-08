@@ -47,7 +47,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 
     /**
      *
-     * @param path ruta
+     * @param path    ruta
      * @param content texto a imprimir
      * @throws IOException excepcion al escribir en fichero
      */
@@ -68,7 +68,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 
     /**
      *
-     * @param path ruta archivo a escribir
+     * @param path      ruta archivo a escribir
      * @param productos lista de productos
      * @throws IOException al escribir
      */
@@ -81,6 +81,7 @@ public class ProductoDAOImpl implements ProductoDAO {
             workbook.write(out);
         }
     }
+
     //Crea los 4 estilos de una fila con el mismo color de fondo
     private RowStyles createRowStyles(Workbook workbook, Font bold, IndexedColors background) {
         return new RowStyles(
