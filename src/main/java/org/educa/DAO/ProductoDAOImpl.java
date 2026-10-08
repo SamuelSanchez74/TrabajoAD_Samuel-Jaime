@@ -5,10 +5,14 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.educa.entity.ProductoEntity;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class ProductoDAOImpl implements ProductoDAO {
 
@@ -52,4 +56,14 @@ public class ProductoDAOImpl implements ProductoDAO {
             writer.write(content);
         }
     }
+
+    @Override
+    public void writeExcel(String path, List<ProductoEntity> productos) throws IOException {
+        try (Workbook workbook = buildWorkbook(productos);
+             FileOutputStream out = new FileOutputStream(path)) {
+            workbook.write(out);
+        }
+    }
+
+
 }
